@@ -15,7 +15,7 @@ def plotstyle():
     import matplotlib.pyplot as plt
     
     # Creating a Figure obect (dpi changes the basic unit size)
-    fig = plt.figure(figsize=(5,4),dpi=80) 
+    fig = plt.figure(figsize=(12,6))
 
     # Settubg axis position and size
     axes = fig.add_axes([0,0,1,1])
@@ -58,7 +58,7 @@ def plot2D(x,y):
                   marker='+', markersize=5, markeredgewidth=1)
                   
         # Inserting Legend
-        axes.legend(loc=0)
+        axes.legend(loc='best',frameon= True, fancybox = True)
         
     return axes
 
@@ -128,7 +128,7 @@ def regressionPlot(x,y,theta,refcol):
     axes.set_ylabel('Parameter')
    
     # Inserting Legend
-    axes.legend(loc=0)
+    axes.legend(loc='best',frameon= True, fancybox = True)
     
     # Saving Figure
     # fig.savefig('RegressionPlot.png')
@@ -173,7 +173,7 @@ def plotClassifier2D(data,colbin,colref):
         axes.plot(xzero.iloc[:,i],yzero, label= headx[i],
                   color=(np.random.sample(),np.random.sample(),
                   np.random.sample()),linewidth=0, linestyle='-',alpha=1,
-                  marker='+', markersize=5, markeredgewidth=1)
+                  marker='o', markersize=5, markeredgewidth=1)
     
     for j in range(num_of_feat_1):
         axes.plot(xone.iloc[:,j],yone, label= head[colref],
@@ -182,7 +182,7 @@ def plotClassifier2D(data,colbin,colref):
                   marker='o', markersize=5, markeredgewidth=1)
     
     # Inserting Legend
-    axes.legend(loc=0,frameon= True, fancybox = True)
+    axes.legend(loc='best',frameon= True, fancybox = True)
     
     return axes
 
