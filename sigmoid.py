@@ -3,7 +3,7 @@
 """
 Created on Thu Dec 20 14:40:10 2018
 
-A = WARMUPEXERCISE() is an example function that returns the 5x5 identity matrix
+Sigmoid function 
 
 @author: gabi (based on ML Coursera Course)
 """
@@ -13,6 +13,9 @@ import numpy as np # Library dedictated to vectorial math
 
 # Defining a function using Python
 
-def idenMatrix():
-    return np.eye(5)
+def sigmoid(z):
+    
+    g = 1/(1+(np.exp(-z)))
+    
+    return g
 

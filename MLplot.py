@@ -16,19 +16,16 @@ def plotstyle():
     
     # Creating a Figure obect (dpi changes the basic unit size)
     fig = plt.figure(figsize=(12,6))
+    fig.patch.set_facecolor('xkcd:white')
 
     # Settubg axis position and size
     axes = fig.add_axes([0,0,1,1])
+    axes.set_facecolor('lightyellow')
     
     # Inserting grid on the figure
     axes.grid(b=True, which='major', axis='both', linestyle='-', linewidth=0.5)
     axes.minorticks_on()
     axes.grid(b=True, which='minor', axis='both', linestyle=':',linewidth=0.2)
-    
-    # Setting title and axis labels
-    axes.set_title("2D plot")
-    axes.set_xlabel("x values")
-    axes.set_ylabel("y values")
     
     return [fig , axes]
 
@@ -57,9 +54,7 @@ def plot2D(x,y):
                   np.random.sample()),linewidth=0, linestyle='-',alpha=1,
                   marker='+', markersize=5, markeredgewidth=1)
                   
-        # Inserting Legend
-        axes.legend(loc='best',frameon= True, fancybox = True)
-        
+       
     return axes
 
 def plot3D(x,y,z):
@@ -126,10 +121,7 @@ def regressionPlot(x,y,theta,refcol):
     axes.set_title('Regression plot')
     axes.set_xlabel('Parameter')
     axes.set_ylabel('Parameter')
-   
-    # Inserting Legend
-    axes.legend(loc='best',frameon= True, fancybox = True)
-    
+       
     # Saving Figure
     # fig.savefig('RegressionPlot.png')
     
@@ -157,9 +149,6 @@ def plotClassifier2D(data,colbin,colref):
     xzero = bizero.drop([str(head[colref]),str(head[colbin])],axis=1)
     xone = bione.drop([str(head[colref]),str(head[colbin])],axis=1)
     
-    # Getting the Header x information
-    headx = list(xzero.columns)
-    
     # Making the y data axis
     yzero = bizero.iloc[:,colref]
     yone = bione.iloc[:,colref]
@@ -170,19 +159,17 @@ def plotClassifier2D(data,colbin,colref):
     
     # Plotting the data
     for i in range(num_of_feat_0):
-        axes.plot(xzero.iloc[:,i],yzero, label= headx[i],
+        axes.plot(xzero.iloc[:,i],yzero, label= 'Not_admitted',
                   color=(np.random.sample(),np.random.sample(),
                   np.random.sample()),linewidth=0, linestyle='-',alpha=1,
                   marker='o', markersize=5, markeredgewidth=1)
     
     for j in range(num_of_feat_1):
-        axes.plot(xone.iloc[:,j],yone, label= head[colref],
+        axes.plot(xone.iloc[:,j],yone, label= 'Admitted',
                   color=(np.random.sample(),np.random.sample(),
                   np.random.sample()),linewidth=0, linestyle='-',alpha=1,
                   marker='o', markersize=5, markeredgewidth=1)
     
-    # Inserting Legend
-    axes.legend(loc='best',frameon= True, fancybox = True)
     
     return axes
 

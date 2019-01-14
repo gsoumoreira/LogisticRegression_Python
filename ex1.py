@@ -46,10 +46,10 @@ y = data[[1]]
 m = len(y) 
 
 # Adding a new column to the dataset with ones values
-#data["ones"] = np.ones(m)
+data["ones"] = np.ones(m)
 
 # Choose the header feature index
-#data.columns = ['X1','Y','X0']
+data.columns = ['X1','X2','X3','X0']
 
 # Selecting the column variable with the population of citties 
 popci = pd.DataFrame(data.iloc[:,0])
@@ -101,22 +101,4 @@ regplot.set_ylabel('Profit in $10.000s')
 #%% Part 7 - Cost Function plot with different theta values
 
 # Setting theta_0 and theta_1 variation values
-T0 = pd.DataFrame(np.linspace(-10,10,100))
-T1 = pd.DataFrame(np.linspace(-1,4,100))
-
-# Initialize the Cost function variable for 3D plot
-J_vals = pd.DataFrame(np.zeros([len(T0),len(T1)]))
-
-#Compute the new J_vals values
-for i in list(range(len(T0))):
-    for j in list(range(len(T1))):
-         t = pd.DataFrame([float(T0.iloc[i,:]), float(T1.iloc[j,:])])
-         J_vals.iloc[i,j] = float(cc.computeCost(x, y, t))
-
-# Check the MLplot source code for plot3D details
-Jplot = pl.plot3D(T0,T1,J_vals)
-
-# Setting the title and axis label
-Jplot.set_xlabel(r'$\theta_0$')
-Jplot.set_ylabel(r'$\theta_1$')
-Jplot.set_zlabel(r"J($\theta$)")
+test = pl.plot2D(thetahist[[1]],Jhist)
