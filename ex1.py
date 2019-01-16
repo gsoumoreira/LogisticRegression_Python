@@ -40,7 +40,7 @@ pathtodata = 'Exercise_Data/ex1_Data.txt'
 data = pd.read_csv(pathtodata,delimiter = ',',header=None)
 
 # Selecting the column variable with the profits 
-y = data[[1]]
+y = data[[2]]
 
 # Number of training examples 
 m = len(y) 
