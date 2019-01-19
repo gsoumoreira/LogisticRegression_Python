@@ -171,5 +171,5 @@ def plotClassifier2D(data,colbin,colref):
                   marker='o', markersize=5, markeredgewidth=1)
     
     
-    return axes
+    return fig,axes
 
